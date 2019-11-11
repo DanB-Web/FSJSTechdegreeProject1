@@ -16,8 +16,8 @@ var quotes = [					//Initialise arrays of quotes inside objects
 {quote:"Quote 1", source:"Source 1", citation:"Citation 1", year:"Year 1"},
 {quote:"Quote 2", source:"Source 2", citation:"Citation 2", year:"Year 2"},
 {quote:"Quote 3", source:"Source 3", citation:"Citation 3", year:"Year 3"},
-{quote:"Quote 4", source:"Source 4", citation:"Citation 4", year:"Year 4"},
-{quote:"Quote 5", source:"Source 5", citation:"Citation 5", year:"Year 5"}
+{quote:"Quote 4", source:"Source 4", citation:0, year:"Year 4"},
+{quote:"Quote 5", source:"Source 5", citation:0, year:"Year 5"}
 
 ];
 
@@ -55,15 +55,13 @@ function printQuote () {					//Build HTML string from quotes array
 
 	html += '</p>';
 
-	return html; 
+	document.getElementById("quote-box").innerHTML = html;
 
 }	
-
-console.log(printQuote());
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE OF CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
