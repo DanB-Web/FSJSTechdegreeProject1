@@ -36,7 +36,30 @@ function getRandomQuote () {	//Function to return a random object within the arr
  * `printQuote` function
 ***/
 
-console.log(getRandomQuote());		//Testing to see if random quotes appear in console log
+function printQuote () {					//Build HTML string from quotes array
+
+	var temp = getRandomQuote();
+	
+	var html = '<p class = "quote">' + temp.quote + '</p>';
+	 
+	html += '<p class= "source">' + temp.source + '';
+
+	if (temp.citation != 0) {
+
+		html += '<span class="citation">' + temp.citation + '</span>';
+	}
+
+	if (temp.year != 0) {
+		html += '<span class="year">' + temp.year + '</span>';
+	}
+
+	html += '</p>';
+
+	return html; 
+
+}	
+
+console.log(printQuote());
 
 /***
  * click event listener for the print quote button
