@@ -3,15 +3,12 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * `Initialise array of objects to contain quotes and related info
 ***/
 
-var quotes = [					//Initialise arrays of quotes inside objects
+var quotes = [					
 
 {quote:"The way to get started is to quit talking and begin doing", 
 source:"Walt Disney", citation:0, year:0, tag:"American Businessman"},
@@ -40,17 +37,21 @@ source:"Johann Wolfgang von Goethe ", citation:0, year:0, tag:"German Statesman"
 ];
 
 /***
- * `getRandomQuote` function
+ * Function to return a pseudo-random quote object from the array when called by the printQuote function
 ***/
 
-function getRandomQuote () {	//Function to return a random object within the array
+function getRandomQuote () {	
 
 	var temp =  Math.floor(Math.random()*quotes.length);
 	return quotes[temp];
 
 }
 
-function randomColor() {		//Function to generate random background colors
+/***
+ * Function to generate a pseudo-random background color from a pre-defined array when called printQuote function
+***/
+
+function randomColor() {
 
 	var color = ['lightgreen', 'lightpink', 'wheat', 'lemonchiffon', 'lightblue', 'plum', 'lightgrey', 'honeydew'];
 
@@ -59,18 +60,18 @@ function randomColor() {		//Function to generate random background colors
 }
 
 /***
- * `printQuote` function
+ * Main function to generate an html string from a pseudo-random array object, and also return an acoompannying pseudo-random background color
 ***/
 
-function printQuote () {					//Function to build HTML string from quotes array
+function printQuote () {					
 
 	var temp = getRandomQuote();			//Call for a random object from the array
 	
-	var html = '<p class = "quote">' + temp.quote + '</p>'; //Build the HTML string
+	var html = '<p class = "quote">' + temp.quote + '</p>'; //Start to build the HTML string
 	 
 	html += '<p class= "source">' + temp.source + '';
 
-	if (temp.tag != 0) {
+	if (temp.tag != 0) {									//If statements to check if the called object includes tags, citaitons and/or year fields
 		html += '<span class="tag">' + temp.tag + '</span>';
 	}
 
@@ -83,14 +84,14 @@ function printQuote () {					//Function to build HTML string from quotes array
 		html += '<span class="year">' + temp.year + '</span>';
 	}
 
-	html += '</p>';
+	html += '</p>';				//Close generated html string
 
 	document.getElementById("quote-box").innerHTML = html;	//Send new HTML string to quote-box div
 	document.body.style.background = randomColor();  //Send random background color to body element
 }	
 
 /***
- * `Timer to change quote every 20 seconds
+ * Timer to change quote every 20 seconds
 ***/
 
 setInterval(printQuote, 20000); 
