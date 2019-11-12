@@ -13,29 +13,29 @@ project 1 - A Random Quote Generator
 
 var quotes = [					//Initialise arrays of quotes inside objects
 
-{quote:"Quote 1", 
-source:"Source 1", citation:"Citation 1", year:"Year 1", tag:"Tag 1"},
+{quote:"The way to get started is to quit talking and begin doing", 
+source:"Walt Disney", citation:0, year:0, tag:"American Businessman"},
 
-{quote:"Quote 2",
-source:"Source 2", citation:"Citation 2", year:"Year 2", tag:"Tag 2"},
+{quote:"Look back over the past, with its changing empires that rose and fell, and you can foresee the future, too",
+source:"Marcus Aurelius", citation:"Meditations", year:"161-180 CE", tag:"Roman Emperor"},
 
-{quote:"Quote 3", 
-source:"Source 3", citation:"Citation 3", year:"Year 3", tag:"Tag 3"},
+{quote:"If a man knows not to which port he sails, no wind is favorable", 
+source:"Seneca the Younger", citation:"Moral letters to Lucilius; Letter LXXI", year:0, tag:"Stoic Philosopher"},
 
-{quote:"Quote 4", 
-source:"Source 4", citation:0, year:"Year 4", tag:"Tag 4"},
+{quote:"As is a tale, so is life: not how long it is, but how good it is, is what matters", 
+source:"Seneca the Younger", citation:0, year:0, tag:"Stoic Philosopher"},
 
-{quote:"Quote 5", 
-source:"Source 5", citation:0, year:"Year 5", tag:"Tag 5"},
+{quote:"I am convinced that life is 10% what happens to me and 90% of how I react to it.",
+source:"Charles R. Swindoll", citation:0, year:0, tag:"American Clergyman"},
 
-{quote:"Quote 6", 
-source:"Source 6", citation:0, year:"Year 6", tag:"Tag 6"},
+{quote:"It does not matter how slowly you go as long as you don't stop", 
+source:"Confucius", citation:0, year:0, tag:"Chinese Philosopher"},
 
-{quote:"Quote 7", 
-source:"Source 7", citation:0, year:"Year 7", tag:"Tag 7"},
+{quote:"The pain you feel today will be the strength you feel tommorow", 
+source:"Unknown", citation:0, year:0, tag:0},
 
-{quote:"Quote 8", 
-source:"Source 8", citation:0, year:"Year 8", tag:"Tag 8"}
+{quote:"Knowing is not enough; we must apply. Willing is not enough; we must do", 
+source:"Johann Wolfgang von Goethe ", citation:0, year:0, tag:"German Statesman"}
 
 ];
 
@@ -70,6 +70,10 @@ function printQuote () {					//Function to build HTML string from quotes array
 	 
 	html += '<p class= "source">' + temp.source + '';
 
+	if (temp.tag != 0) {
+		html += '<span class="tag">' + temp.tag + '</span>';
+	}
+
 	if (temp.citation != 0) {
 
 		html += '<span class="citation">' + temp.citation + '</span>';
@@ -77,10 +81,6 @@ function printQuote () {					//Function to build HTML string from quotes array
 
 	if (temp.year != 0) {
 		html += '<span class="year">' + temp.year + '</span>';
-	}
-
-	if (temp.tag != 0) {
-		html += '<span class="tag">' + temp.tag + '</span>';
 	}
 
 	html += '</p>';
@@ -93,7 +93,7 @@ function printQuote () {					//Function to build HTML string from quotes array
  * `Timer to change quote every 20 seconds
 ***/
 
-setInterval(printQuote, 5000); 
+setInterval(printQuote, 20000); 
 
 /***
  * click event listener for the print quote button
