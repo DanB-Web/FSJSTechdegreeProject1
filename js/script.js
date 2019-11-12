@@ -50,7 +50,7 @@ function getRandomQuote () {	//Function to return a random object within the arr
 
 }
 
-function randomColor() {		//Function to generate random background color
+function randomColor() {		//Function to generate random background colors
 
 	var color = ['lightgreen', 'lightpink', 'wheat', 'lemonchiffon', 'lightblue', 'plum', 'lightgrey', 'honeydew'];
 
@@ -88,6 +88,12 @@ function printQuote () {					//Function to build HTML string from quotes array
 	document.getElementById("quote-box").innerHTML = html;	//Send new HTML string to quote-box div
 	document.body.style.background = randomColor();  //Send random background color to body element
 }	
+
+/***
+ * `Timer to change quote every 20 seconds
+***/
+
+setInterval(printQuote, 5000); 
 
 /***
  * click event listener for the print quote button
